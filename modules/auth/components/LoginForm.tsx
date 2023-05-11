@@ -17,7 +17,7 @@ export const LoginForm = () => {
             <Ionicons name="mail-outline" size={24} color={'#24292E'} />
           </AuthInput>
         </View>
-        <View className="pt-7">
+        <View className="pt-5">
           <AuthInput
             label="Contraseña"
             name="email"

@@ -12,7 +12,7 @@ export const Login = () => {
       <NavigationContainer>
         <View
           style={{ elevation: 5, shadowColor: 'rgba(0, 0, 0, 0.20)' }}
-          className="flex justify-center items-center relative h-4/6"
+          className="flex justify-center items-center relative h-3/6"
         >
           <View
             style={{ position: 'relative' }}
@@ -25,33 +25,29 @@ export const Login = () => {
             </Text>
           </View>
         </View>
-        <Tab.Navigator
-          screenOptions={{
-            tabBarActiveTintColor: '#24292E',
-            tabBarInactiveTintColor: '#24292E',
-            tabBarLabelStyle: {
-              fontFamily: 'Montserrat-Bold',
-            },
-            tabBarIndicatorStyle: {
-              backgroundColor: '#FF5757',
-            },
-            tabBarStyle: {
-              borderBottomLeftRadius: 20,
-              borderBottomRightRadius: 20,
-              display: 'flex',
-              overflow: 'hidden',
-            },
-          }}
-        >
-          <Tab.Screen
-            name="Iniciar sesión"
-            component={LoginForm}
-          />
-          <Tab.Screen
-            name="Registro"
-            component={RegisterForm}
-          />
-        </Tab.Navigator>
+        <View className="h-3/6">
+          <Tab.Navigator
+            screenOptions={{
+              tabBarActiveTintColor: '#24292E',
+              tabBarInactiveTintColor: '#24292E',
+              tabBarLabelStyle: {
+                fontFamily: 'Montserrat-Bold',
+              },
+              tabBarIndicatorStyle: {
+                backgroundColor: '#FF5757',
+              },
+              tabBarStyle: {
+                borderBottomLeftRadius: 20,
+                borderBottomRightRadius: 20,
+                display: 'flex',
+                overflow: 'hidden',
+              },
+            }}
+          >
+            <Tab.Screen name="Iniciar sesión" component={LoginForm} />
+            <Tab.Screen name="Registro" component={RegisterForm} />
+          </Tab.Navigator>
+        </View>
       </NavigationContainer>
     </SafeAreaView>
   );

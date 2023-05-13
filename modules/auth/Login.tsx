@@ -1,18 +1,36 @@
-import { Image, SafeAreaView, Text, View } from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  Text,
+  View,
+  StyleSheet,
+  StatusBar,
+  LogBox,
+} from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { CommonActions, NavigationContainer } from '@react-navigation/native';
 import { LoginForm } from './components/LoginForm';
 import { RegisterForm } from './components/RegisterForm';
+import { createNavigationContainerRef } from '@react-navigation/native';
 
 const Tab = createMaterialTopTabNavigator();
+LogBox.ignoreLogs(['Require cycle:']);
+
+export const navigationRef = createNavigationContainerRef();
+
+export function navigate(name: string, params?: object) {
+  if (navigationRef.isReady()) {
+    navigationRef.dispatch(CommonActions.navigate(name, params));
+  }
+}
 
 export const Login = () => {
   return (
-    <SafeAreaView>
-      <NavigationContainer>
+    <SafeAreaView style={styles.container}>
+      <NavigationContainer independent={true}>
         <View
           style={{ elevation: 5, shadowColor: 'rgba(0, 0, 0, 0.20)' }}
-          className="flex justify-center items-center relative h-3/6"
+          className="flex justify-center bg-white items-center relative h-5/12"
         >
           <View
             style={{ position: 'relative' }}
@@ -25,7 +43,7 @@ export const Login = () => {
             </Text>
           </View>
         </View>
-        <View className="h-3/6">
+        <View className="h-7/12">
           <Tab.Navigator
             screenOptions={{
               tabBarActiveTintColor: '#24292E',
@@ -52,3 +70,9 @@ export const Login = () => {
     </SafeAreaView>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight,
+  },
+});

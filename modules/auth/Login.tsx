@@ -12,6 +12,9 @@ import { CommonActions, NavigationContainer } from '@react-navigation/native';
 import { LoginForm } from './components/LoginForm';
 import { RegisterForm } from './components/RegisterForm';
 import { createNavigationContainerRef } from '@react-navigation/native';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../common/hooks/redux-hooks';
+import { deleteAuth } from './slices/AuthSlice';
 
 const Tab = createMaterialTopTabNavigator();
 LogBox.ignoreLogs(['Require cycle:']);
@@ -25,6 +28,17 @@ export function navigate(name: string, params?: object) {
 }
 
 export const Login = () => {
+  const auth = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    console.log(auth);
+    dispatch(deleteAuth());
+    if (auth && auth.token) {
+      navigate('Home');
+    }
+  }, [navigationRef.isReady()]);
+
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer independent={true}>

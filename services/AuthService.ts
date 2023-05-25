@@ -17,6 +17,7 @@ export const AuthService = () => {
           }
         }
       });
+      
     const register = createAsyncThunk('auth/register', async (values: IRegisterRequest) => {
         try {
           return (

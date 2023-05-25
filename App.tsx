@@ -6,12 +6,12 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import { setupAxios } from './common/helpers/authHelper';
+import { getAuth, setupAxios } from './common/helpers/authHelper';
 import { apiUrl } from './common/utils/axios';
 import ToastManager from 'toastify-react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './modules/home/Home';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 const queryClient = new QueryClient();
 setupAxios(apiUrl);

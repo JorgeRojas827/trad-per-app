@@ -22,6 +22,7 @@ const getAuth = (): ILoginResponse | undefined => {
   }
 
   const lsValue: string | null = SyncStorage.get(AUTH_LOCAL_STORAGE_KEY);
+
   if (!lsValue) {
     return;
   }

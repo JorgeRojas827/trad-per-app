@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         textColor: '#4B4B4B',
         primary: '#FF5757',
+        backgroundInput: '#24292E',
       },
       boxShadow: {
         'auth-top': '0px 2px 4px rgba(0, 0, 0, 0.09)',

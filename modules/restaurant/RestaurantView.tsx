@@ -34,6 +34,30 @@ const RestaurantView = ({ route }: any) => {
           >
             <Ionicons name="chevron-back" color={'#ffffff'} size={28} />
           </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            className="absolute z-50 top-6 right-4 rounded-full p-1.5 flex justify-center items-center bg-[#24292E]/[0.91]"
+          >
+            <View className="absolute -top-2 -right-1">
+              <View className="bg-primary rounded-full w-4 h-4 flex justify-center items-center">
+                <Text className="font-montserrat-bold text-[8px] text-white">
+                  3
+                </Text>
+              </View>
+            </View>
+            <Ionicons
+              name="chevron-back"
+              style={{ opacity: 0 }}
+              size={28}
+              color={'#fff'}
+            />
+            <Ionicons
+              name="cart-outline"
+              style={{ position: 'absolute' }}
+              size={24}
+              color={'#fff'}
+            />
+          </TouchableOpacity>
           <Image
             source={{
               uri: restaurant.attributes.banner_single.data.attributes.url,

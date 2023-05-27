@@ -29,12 +29,13 @@ const SingleProduct: FC<IProps> = ({ product, position }) => {
       </Text>
       <TouchableOpacity
         activeOpacity={0.8}
-        className="bg-[#FF5757] flex flex-row rounded-full px-3 items-center py-1"
+        className="bg-[#FF5757] flex flex-row rounded-full px-1 items-center py-1"
       >
-        <Ionicons name="add" color="#fff" size={22} />
+        <Ionicons name="remove-outline" color="#fff" size={22} />
         <Text className="text-white font-montserrat-semibold text-base">
           S/. {Number(product.attributes.price).toFixed(2)}
         </Text>
+        <Ionicons name="add" color="#fff" size={22} />
       </TouchableOpacity>
     </View>
   );

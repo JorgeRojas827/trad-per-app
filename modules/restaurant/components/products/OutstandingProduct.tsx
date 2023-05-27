@@ -51,10 +51,11 @@ const OutstandingProduct: FC<IProps> = ({ id_product }) => {
               activeOpacity={0.8}
               className="bg-[#D93939] flex flex-row rounded-full px-3 items-center py-1"
             >
-              <Ionicons name="add" color="#fff" size={22} />
+              <Ionicons name="remove-outline" color="#fff" size={22} />
               <Text className="text-white font-montserrat-semibold text-base">
                 S/. {Number(product.data[0].attributes.price).toFixed(2)}
               </Text>
+              <Ionicons name="add" color="#fff" size={22} />
             </TouchableOpacity>
             <Image
               source={{

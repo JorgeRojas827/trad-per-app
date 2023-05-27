@@ -6,7 +6,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Restaurants from './tabs/Restaurants';
 import Account from './tabs/Account';
 import { View } from 'react-native';
-import { TabBar } from 'react-native-tab-view';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,7 +34,7 @@ const Home = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="Restaurants"
         component={Restaurants}
         options={{
           tabBarIcon: ({ size, focused, color }) => {

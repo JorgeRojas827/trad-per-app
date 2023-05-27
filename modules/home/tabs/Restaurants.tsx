@@ -7,15 +7,10 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import CategoryList from '../components/CategoryList';
-import RestaurantList from '../components/RestaurantList';
+import CategoryList from '../components/category/CategoryList';
+import RestaurantList from '../components/restaurants/RestaurantList';
 import { SearchInput } from '../components/SearchInput';
-import {
-  useAppDispatch,
-  useAppSelector,
-} from '../../../common/hooks/redux-hooks';
-import { navigate } from '../../auth/Login';
-import { deleteAuth } from '../../auth/slices/AuthSlice';
+import { useAppSelector } from '../../../common/hooks/redux-hooks';
 
 const Restaurants = () => {
   const { currentUser } = useAppSelector((state) => state.auth);

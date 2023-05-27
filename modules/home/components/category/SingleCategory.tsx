@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import React, { FC } from 'react';
-import { ICategory } from '../../../common/interfaces/category.interface';
+import { ICategory } from '../../../../common/interfaces/category.interface';
 
 interface IProps {
   category: ICategory;

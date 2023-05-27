@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
-import { IRestaurant } from '../../../common/interfaces/restaurant.interface';
+import { IRestaurant } from '../../../../common/interfaces/restaurant.interface';
+import { navigate } from '../../../auth/Login';
 
 interface IProps {
   index: number;
@@ -8,7 +9,9 @@ interface IProps {
 }
 
 export const SingleRestaurant: FC<IProps> = ({ restaurant, index }) => {
-  console.log(restaurant);
+  const onPressHandler = () => {
+    navigate('SingleRestaurant', { restaurant });
+  };
 
   return (
     <TouchableOpacity
@@ -18,6 +21,7 @@ export const SingleRestaurant: FC<IProps> = ({ restaurant, index }) => {
           ? 'mt-0 flex relative w-full rounded-xl'
           : 'mt-5 flex relative w-full rounded-xl'
       }
+      onPress={onPressHandler}
     >
       <Image
         source={{

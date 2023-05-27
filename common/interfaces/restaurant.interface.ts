@@ -1,4 +1,5 @@
 import { ICategory } from './category.interface';
+import { IProduct, IProductMeta } from './product.interface';
 
 export interface IListRestaurantResponse {
     data: IRestaurant[]
@@ -20,6 +21,20 @@ export interface IListRestaurantResponse {
     banner: IRestaurantBanner
     banner_single: IRestaurantBanner
     categories: ICategoryRestaurant
+    products: IProductRestaurant
+    outstanding_product: IProductData
+  }
+
+  export interface IProductData {
+    data: IProduct
+  }
+  export interface IProductIdResponse {
+    data: IProduct[]
+    meta: IProductMeta
+  }
+
+  export interface IProductRestaurant {
+    data: IProduct[]
   }
 
   export interface ICategoryRestaurant {

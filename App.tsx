@@ -12,6 +12,7 @@ import ToastManager from 'toastify-react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './modules/home/Home';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import RestaurantView from './modules/restaurant/RestaurantView';
 
 const queryClient = new QueryClient();
 setupAxios(apiUrl);
@@ -53,6 +54,11 @@ export default function App() {
                 <Stack.Screen
                   name="Home"
                   component={Home}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name="SingleRestaurant"
+                  component={RestaurantView}
                   options={{ headerShown: false }}
                 />
               </Stack.Navigator>

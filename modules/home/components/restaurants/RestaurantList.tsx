@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { View, Text } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
-import { IListRestaurantResponse } from '../../../common/interfaces/restaurant.interface';
-import { RestaurantService } from '../../../services/RestaurantService';
+import { IListRestaurantResponse } from '../../../../common/interfaces/restaurant.interface';
+import { RestaurantService } from '../../../../services/RestaurantService';
 import { SingleRestaurant } from './SingleRestaurant';
 import { Ionicons } from '@expo/vector-icons';
 

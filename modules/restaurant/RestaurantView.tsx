@@ -16,9 +16,11 @@ import OutstandingProduct from './components/products/OutstandingProduct';
 import { IProduct } from '../../common/interfaces/product.interface';
 import { ListProducts } from './components/products/ListProducts';
 import { ScrollView } from 'react-native';
+import { useAppSelector } from '../../common/hooks/redux-hooks';
 
 const RestaurantView = ({ route }: any) => {
   const restaurant = route.params.restaurant as IRestaurant;
+  const { totalItems } = useAppSelector((state) => state.cart);
 
   return (
     <View style={styles.container} className="flex flex-col">
@@ -41,7 +43,7 @@ const RestaurantView = ({ route }: any) => {
             <View className="absolute -top-2 -right-1">
               <View className="bg-primary rounded-full w-4 h-4 flex justify-center items-center">
                 <Text className="font-montserrat-bold text-[8px] text-white">
-                  3
+                  {totalItems}
                 </Text>
               </View>
             </View>

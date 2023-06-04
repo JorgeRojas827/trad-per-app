@@ -1,13 +1,10 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React, { FC } from 'react';
-import { IProduct } from '../../../../common/interfaces/product.interface';
 import { ProductService } from '../../../../services/ProductService';
-import {
-  IProductData,
-  IProductIdResponse,
-} from '../../../../common/interfaces/restaurant.interface';
+import { IProductIdResponse } from '../../../../common/interfaces/restaurant.interface';
 import { useQuery } from '@tanstack/react-query';
 import { Ionicons } from '@expo/vector-icons';
+import { useShoppingCart } from '../../hook/useShoppingCart';
 
 interface IProps {
   id_product: number;
@@ -26,6 +23,7 @@ const OutstandingProduct: FC<IProps> = ({ id_product }) => {
       refetchOnWindowFocus: false,
     }
   );
+  const { addToCart, removeFromCart } = useShoppingCart();
 
   const renderProduct = (!isLoading || !isFetching) && !isError && !product;
 
@@ -51,11 +49,26 @@ const OutstandingProduct: FC<IProps> = ({ id_product }) => {
               activeOpacity={0.8}
               className="bg-[#D93939] flex flex-row rounded-full px-3 items-center py-1"
             >
-              <Ionicons name="remove-outline" color="#fff" size={22} />
+              <Ionicons
+                onPress={() => {
+                  removeFromCart({ ...product.data[0], quantity: 1 });
+                }}
+                name="remove-outline"
+                color="#fff"
+                size={22}
+              />
               <Text className="text-white font-montserrat-semibold text-base">
                 S/. {Number(product.data[0].attributes.price).toFixed(2)}
               </Text>
-              <Ionicons name="add" color="#fff" size={22} />
+
+              <Ionicons
+                onPress={() => {
+                  addToCart({ ...product.data[0], quantity: 1 });
+                }}
+                name="add"
+                color="#fff"
+                size={22}
+              />
             </TouchableOpacity>
             <Image
               source={{

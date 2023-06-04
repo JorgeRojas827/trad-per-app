@@ -29,7 +29,7 @@ const RestaurantList: FC<IProps> = ({ search, categorySelected }) => {
   if (
     (!isLoading || !isFetching) &&
     !isError &&
-    restaurants &&
+    restaurants?.data &&
     restaurants?.data
       .filter((e) =>
         e.attributes.name.toLowerCase().includes(search.toLowerCase())
@@ -52,7 +52,7 @@ const RestaurantList: FC<IProps> = ({ search, categorySelected }) => {
     <View className="w-full">
       {(!isLoading || !isFetching) &&
         !isError &&
-        restaurants &&
+        restaurants?.data &&
         restaurants?.data
           .filter((e) =>
             e.attributes.name.toLowerCase().includes(search.toLowerCase())

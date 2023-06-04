@@ -36,6 +36,7 @@ const useAuthentication = () => {
     (userData: TLoginForm) => dispatch(AuthService().login(userData)),
     {
       onSuccess(data) {
+        console.log(data);
         if (data.payload.error) {
           loginForm.setError('identifier', {
             message: 'Credenciales incorrectas',

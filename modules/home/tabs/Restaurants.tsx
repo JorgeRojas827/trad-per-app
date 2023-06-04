@@ -14,6 +14,7 @@ import { useAppSelector } from '../../../common/hooks/redux-hooks';
 
 const Restaurants = () => {
   const { currentUser } = useAppSelector((state) => state.auth);
+  const { totalItems } = useAppSelector((state) => state.cart);
   const [search, setSearch] = useState('');
   const [categorySelected, setCategorySelected] = useState<string>('Criollos');
 
@@ -27,7 +28,7 @@ const Restaurants = () => {
           <View className="absolute -top-2 -right-3">
             <View className="bg-primary rounded-full w-4 h-4 flex justify-center items-center">
               <Text className="font-montserrat-bold text-[8px] text-white">
-                3
+                {totalItems}
               </Text>
             </View>
           </View>

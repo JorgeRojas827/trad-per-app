@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import React, { FC } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { IProduct } from '../../../../common/interfaces/product.interface';
+import { useShoppingCart } from '../../hook/useShoppingCart';
 
 interface IProps {
   product: IProduct;
@@ -9,6 +10,7 @@ interface IProps {
 }
 
 const SingleProduct: FC<IProps> = ({ product, position }) => {
+  const { addToCart, removeFromCart } = useShoppingCart();
   return (
     <View
       className={
@@ -31,11 +33,25 @@ const SingleProduct: FC<IProps> = ({ product, position }) => {
         activeOpacity={0.8}
         className="bg-[#FF5757] flex flex-row rounded-full px-1 items-center py-1"
       >
-        <Ionicons name="remove-outline" color="#fff" size={22} />
+        <Ionicons
+          onPress={() => {
+            removeFromCart({ ...product, quantity: 1 });
+          }}
+          name="remove-outline"
+          color="#fff"
+          size={22}
+        />
         <Text className="text-white font-montserrat-semibold text-base">
           S/. {Number(product.attributes.price).toFixed(2)}
         </Text>
-        <Ionicons name="add" color="#fff" size={22} />
+        <Ionicons
+          onPress={() => {
+            addToCart({ ...product, quantity: 1 });
+          }}
+          name="add"
+          color="#fff"
+          size={22}
+        />
       </TouchableOpacity>
     </View>
   );
